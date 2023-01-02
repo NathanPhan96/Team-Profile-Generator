@@ -7,7 +7,7 @@ through the employee js files and the user uses inquirer prompts to go through a
 
 ## Demo Video
 
-
+https://www.youtube.com/watch?v=bzQUtZAgBTo&ab_channel=Natewinderic
 
 
 ## User Story
