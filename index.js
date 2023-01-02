@@ -123,7 +123,9 @@ function newEmployee() {
     }
     
     function renderHTMLFile() {
-    
+        fs.writeFileSync("./index.html", generateTeam(employees),
+        "utf-8"
+        )   
     fs.writeFileSync('./index.html', /*html*/`
     
     <ul>
@@ -158,10 +160,55 @@ function newEmployee() {
     
     }
     
+    const generateTeam = team => {
     
+        const generateManager = manager => {
+            return `
+            <ul>
+                <li>
+                <div>
+                <h1>${manager.getName()}</h1>
+                <p>${manager.getId()}</p>
+                <a href="mailto:${manager.getEmail()}">${employees.getEmail()}</a>
+                <p>${manager.getRole()}</p>
+                <p>${manager.getOfficeNumber()}</p>
+                </div>
+                </li>
+                 </ul>
+             `;
+        };
     
+        const generateEngineer = engineer => {
+            return `
+            <ul>
+            <li>
+            <div>
+            <h1>${engineer.getName()}</h1>
+            <p>${engineer.getId()}</p>
+            <a href="mailto:${engineer.getEmail()}">${employees.getEmail()}</a>
+            <p>${engineer.getRole()}</p>
+            <p>${engineer.getGithub()}</p>
+            </div>
+            </li>
+             </ul>
+             `;
+        };
     
-    
-    
-    
+        const generateIntern = intern => {
+            return `
+            <ul>
+            <li>
+            <div>
+            <h1>${intern.getName()}</h1>
+            <p>${intern.getId()}</p>
+            <a href="mailto:${intern.getEmail()}">${employees.getEmail()}</a>
+            <p>${intern.getRole()}</p>
+            <p>${intern.getSchool()}</p>
+            </div>
+            </li>
+             </ul>
+             `;
+        };
+    }
+
     newEmployee()
