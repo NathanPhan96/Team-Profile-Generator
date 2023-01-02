@@ -140,7 +140,7 @@ function newEmployee() {
         <div class="row">
 
         ${employees.map(employees => `
-        <div class = "col-md-3 text-dark" style = "margin : 5px; background-color: rgb(216, 214, 214); border-radius: 5px; border-color: black; border-style: solid; box-shadow: 5px 5px 5px rgb(81, 79, 79);">
+        <div class = "col-md-3 text-dark" style = "margin : 5px; padding : 0; text-align : center; background-color: rgb(216, 214, 214); border-radius: 5px; border-color: black; border-style: solid; box-shadow: 5px 5px 5px rgb(81, 79, 79);">
         <header style="background : rgb(39, 181, 228)">
             <h1>${employees.getName()}</h1>
             ${uniqueIcon(employees)}
