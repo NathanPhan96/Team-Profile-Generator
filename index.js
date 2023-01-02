@@ -1,11 +1,9 @@
-
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const employees = []
-const position = employees.role;
 
 //TODO - write your inquirer app here to gather information about the team members, and generate the HTML file using fs
 function newEmployee() {
@@ -140,6 +138,7 @@ function newEmployee() {
         </div>
         <div class="container">
         <div class="row">
+
         ${employees.map(employees => `
         <div class = "col-md-3 text-dark" style = "margin : 5px; background-color: rgb(216, 214, 214); border-radius: 5px; border-color: black; border-style: solid; box-shadow: 5px 5px 5px rgb(81, 79, 79);">
         <header style="background : rgb(39, 181, 228)">
@@ -150,6 +149,7 @@ function newEmployee() {
             <p class= "fa-solid fa-envelope"><a href="mailto:${employees.getEmail()}"> Email</a></p><br>
             ${uniqueInfo(employees)}
             </div>
+
             `)}
             </div>
             </div>
@@ -158,15 +158,15 @@ function newEmployee() {
         
         function uniqueInfo (employees) {
             switch (employees.getRole())  {
-                // gets office number
+                
                 case "Manager": 
                 return  `<p class= "fa-solid fa-door-open"> Office Number: ${employees.getOfficeNumber()}</p>` 
                 break;
-                // gets github account
+                
                 case 'Engineer' : 
                 return ` <p class="fa-brands fa-github"><a href ="https://www.github.com/${employees.getGithub()}"> GitHub</a></p>`
                 break;
-                // get the school of intern
+                
                 case 'Intern' : 
                 return `<p class="fa-solid fa-school-flag"> School : ${employees.getSchool()}</p>`
                 break;
@@ -187,59 +187,5 @@ function newEmployee() {
         }
    
     
-    <ul>
-    
-  
-    
-    const generateTeam = team => {
-    
-        const generateManager = manager => {
-            return `
-            <ul>
-                <li>
-                <div>
-                <h1>${manager.getName()}</h1>
-                <p>${manager.getId()}</p>
-                <a href="mailto:${manager.getEmail()}">${employees.getEmail()}</a>
-                <p>${manager.getRole()}</p>
-                <p>${manager.getOfficeNumber()}</p>
-                </div>
-                </li>
-                 </ul>
-             `;
-        };
-    
-        const generateEngineer = engineer => {
-            return `
-            <ul>
-            <li>
-            <div>
-            <h1>${engineer.getName()}</h1>
-            <p>${engineer.getId()}</p>
-            <a href="mailto:${engineer.getEmail()}">${employees.getEmail()}</a>
-            <p>${engineer.getRole()}</p>
-            <p>${engineer.getGithub()}</p>
-            </div>
-            </li>
-             </ul>
-             `;
-        };
-    
-        const generateIntern = intern => {
-            return `
-            <ul>
-            <li>
-            <div>
-            <h1>${intern.getName()}</h1>
-            <p>${intern.getId()}</p>
-            <a href="mailto:${intern.getEmail()}">${employees.getEmail()}</a>
-            <p>${intern.getRole()}</p>
-            <p>${intern.getSchool()}</p>
-            </div>
-            </li>
-             </ul>
-             `;
-        };
-    }
-
+   
     newEmployee()
