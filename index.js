@@ -5,6 +5,7 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const employees = []
+const position = employees.role;
 
 //TODO - write your inquirer app here to gather information about the team members, and generate the HTML file using fs
 function newEmployee() {
@@ -76,7 +77,7 @@ function newEmployee() {
                     inquirer.prompt([
                         {
                             type: 'input',
-                            name: 'Github',
+                            name: 'github',
                             message: 'What is their github profile?',
                         }
                     ]).then(({ github }) => {
@@ -115,7 +116,7 @@ function newEmployee() {
     
             if (moreEmployees) newEmployee()
     
-            else renderHTMLFile()
+            else renderHTMLFile();
     
         })
     
@@ -137,15 +138,13 @@ function newEmployee() {
     
         <p>${employees.getId()}</p>
     
-        <a href="mailto:${employees.getEmail()}</a>
+        <a href="mailto:${employees.getEmail()}">${employees.getEmail()}</a>
     
         <p>${employees.getRole()}</p>
     
-        <p>${employees.getOfficeNumber()}</p>
-    
-        <a href ="https://www.github.com/${employees.getGithub()}"</a>
-    
-        <p>${employees.getSchool()}</p>
+        <p>${employees.officeNumber? :}</p>
+        <a href ="https://www.github.com/${employees.github}">${employees.github}</a>
+        <p>${employees.school}</p>
     
         </div>
     
@@ -165,4 +164,4 @@ function newEmployee() {
     
     
     
-    newEmployee()  
+    newEmployee()
